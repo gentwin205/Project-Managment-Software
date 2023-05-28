@@ -26,7 +26,16 @@ public class Employee {
         this.salary = STARTING_SALARY;
     }
     //Empty constructor???? ¯\_(ツ)_/¯
-    public Employee(){}
+    public Employee(){
+        employeeId = 1;
+        firstName = "Dean";
+        lastName = "Johnson";
+        email = "djohnson@teams.com";
+        salary = STARTING_SALARY;
+        department = getDepartment();
+        hireDate = "08/21/2020";
+
+    }
 
     //Methods
     public String getFullName() {
