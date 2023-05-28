@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="m01-week-2-review" />
+        <module name="nlr-14-java-red-module-2-week-2-team-1" />
       </profile>
     </annotationProcessing>
   </component>

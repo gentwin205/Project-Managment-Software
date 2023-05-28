@@ -1,15 +1,17 @@
 package com.techelevator;
 
 public class Department {
-
+    // instance variables
     private int departmentId;
     private String name;
 
-
+    //constructor
     public Department(int departmentId, String name){
         this.departmentId = departmentId;
         this.name = name;
     }
+
+    // Set & get
 
     public int getDepartmentId() {
         return departmentId;
