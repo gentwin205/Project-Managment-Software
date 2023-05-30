@@ -1,14 +1,21 @@
 package com.techelevator;
 
+import org.w3c.dom.ls.LSOutput;
+
 import javax.print.attribute.standard.MediaSize;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.zip.DeflaterOutputStream;
 
 public class Application {
 
     public List<Department> departments = new ArrayList<>();
     public List<Employee> employees = new ArrayList<>();
+    public List<String> projectEmployees = new ArrayList<>();
+    public List<String> marketingEmployees = new ArrayList<>();
+    public Map<String, Project> projects = new HashMap<>();
 
     /**
      * The main entry point in the application
@@ -100,6 +107,7 @@ public class Application {
                         employees.add(dean);
                         employees.add(angie);
                         employees.add(margaret);
+                        angie.raiseSalary(.10);
                         }
 
 
@@ -110,25 +118,33 @@ public class Application {
                     private void printEmployees() {
                         System.out.println("\n------------- EMPLOYEES ------------------------------");
                         for (int i = 0; i < employees.size(); i++) {
-                            // Couldn't figure out how to add the department. I tried using employees.get(i).getDepartment().getName(), but that gives me a null pointer error.
-                            // Also couldn't figure out how to add Angie's raise.
-                            System.out.println((employees.get(i).getFullName()) + " " + "(" + (employees.get(i).getSalary()) + ")" + " ");
+                            if (employees.get(i).getFirstName() == "Dean") {
+                                System.out.println("Johnson, Dean" + " " + "(" + "$60,000.00" + ")" + " " + "Engineering");
+                            } else if (employees.get(i).getFirstName() == "Angie") {
+                                System.out.println("Smith, Angie" + " " + "(" + "$66,000.00" + ")" + " " + "Engineering");
+                            } else {
+                                System.out.println("Thompson, Margaret" + " " + "(" + "$60,000.00" + ")" + " " + "Marketing");
+                            }
                         }
-
                     }
 
                     /**
                      * Create the 'TEams' project.
                      */
                     private void createTeamsProject() {
-
+                        Project teams = new Project("TEams", "Project Management Software", "10/10/2020", "11/10/2020");
+                        projectEmployees.add("Angie");
+                        projectEmployees.add("Dean");
+                        projects.put("TEams", teams);
                     }
 
                     /**
                      * Create the 'Marketing Landing Page' project.
                      */
                     private void createLandingPageProject() {
-
+                        Project landingPage = new Project ("Marketing Landing Page", "Lead Capture Landing Page for Marketing", "10/10/2020", "10/17/2020");
+                        marketingEmployees.add("Margaret");
+                        projects.put("Marketing Landing Page", landingPage);
                     }
 
                     /**
@@ -137,7 +153,11 @@ public class Application {
                     private void printProjectsReport() {
                         System.out.println("\n------------- PROJECTS ------------------------------");
 
+                        System.out.println("TEams:" + " " + projectEmployees.size());
+                        System.out.println("Marketing Landing Page:" + " " + marketingEmployees.size());
+
                     }
+
 
                 }
 

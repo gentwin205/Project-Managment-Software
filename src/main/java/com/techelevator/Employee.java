@@ -44,7 +44,7 @@ public class Employee {
     // I think this is right.....maybe....
 
     public double raiseSalary(double percent){
-        return salary =  STARTING_SALARY + (percent/100);
+        return salary =  STARTING_SALARY + (STARTING_SALARY * percent);
     }
 
     // Set & get
